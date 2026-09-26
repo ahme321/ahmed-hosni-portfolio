@@ -1,11 +1,23 @@
 import './style.css';
+import { renderNavbar, setupNavbarEvents } from './components/navbar';
+import renderHero from './components/hero';
 
-const app = document.querySelector<HTMLDivElement>('#app');
+function initApp(): void {
+  const appContainer = document.getElementById('app');
+  if (!appContainer) return;
 
-if (app) {
-  app.innerHTML = `
-    <div class="min-h-screen bg-[#0B0F19] text-slate-100 flex items-center justify-center">
-      <h1 class="text-3xl font-bold text-blue-500">Ahmed Hosni | Portfolio Architecture Ready</h1>
-    </div>
+  appContainer.innerHTML = `
+    ${renderNavbar()}
+    <main class="grow">
+      ${renderHero()}
+    </main>
   `;
+
+  setupNavbarEvents();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
 }

@@ -1,11 +1,11 @@
-import type { NavItem } from '../types';
+import type { NavItem } from "../types";
 
 const navItems: NavItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Portfolio', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Portfolio", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function renderNavbar(): string {
@@ -15,14 +15,15 @@ export function renderNavbar(): string {
       <li>
         <a 
           href="${item.href}" 
+          data-nav-link
           class="transition-colors duration-200 hover:text-cyan-400 font-medium text-sm text-slate-300 relative py-1 group block"
         >
           ${item.label}
           <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-blue-500 to-cyan-400 transition-all duration-300 group-hover:w-full"></span>
         </a>
-      </li>`
+      </li>`,
     )
-    .join('');
+    .join("");
 
   return `
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-slate-800/80">
@@ -71,13 +72,14 @@ export function renderNavbar(): string {
             <li>
               <a 
                 href="${item.href}" 
+                data-nav-link
                 class="mobile-nav-link block py-2 px-3 rounded-lg text-base font-medium text-slate-300 hover:bg-slate-800/50 hover:text-cyan-400 transition-colors"
               >
                 ${item.label}
               </a>
-            </li>`
+            </li>`,
             )
-            .join('')}
+            .join("")}
         </ul>
       </div>
     </header>
@@ -85,19 +87,19 @@ export function renderNavbar(): string {
 }
 
 export function setupNavbarEvents(): void {
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const links = document.querySelectorAll('.mobile-nav-link');
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const links = document.querySelectorAll(".mobile-nav-link");
 
-  btn?.addEventListener('click', () => {
-    const isHidden = menu?.classList.toggle('hidden');
-    btn.setAttribute('aria-expanded', String(!isHidden));
+  btn?.addEventListener("click", () => {
+    const isHidden = menu?.classList.toggle("hidden");
+    btn.setAttribute("aria-expanded", String(!isHidden));
   });
 
   links.forEach((link) => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-      btn?.setAttribute('aria-expanded', 'false');
+    link.addEventListener("click", () => {
+      menu?.classList.add("hidden");
+      btn?.setAttribute("aria-expanded", "false");
     });
   });
 }

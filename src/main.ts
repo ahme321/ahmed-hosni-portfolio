@@ -1,6 +1,7 @@
 import './style.css';
 import { renderNavbar, setupNavbarEvents } from './components/navbar';
 import renderHero from './components/hero';
+import { renderAbout } from './components/about';
 
 function initApp(): void {
   const appContainer = document.getElementById('app');
@@ -10,6 +11,7 @@ function initApp(): void {
     ${renderNavbar()}
     <main class="grow">
       ${renderHero()}
+      ${renderAbout()}
     </main>
   `;
 

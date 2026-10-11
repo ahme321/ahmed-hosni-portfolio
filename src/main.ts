@@ -3,8 +3,9 @@ import { renderNavbar, setupNavbarEvents } from "./components/navbar";
 import renderHero from "./components/hero";
 import { renderAbout } from "./components/about";
 import { renderSkills } from "./components/skills";
+import { renderPortfolio } from "./components/portfolio";
 
-const scrollSpySectionIds = ["home", "about", "skills", "projects", "contact"];
+const scrollSpySectionIds = ["home", "about", "skills", "portfolio", "contact"];
 
 function updateActiveNavLink(sectionId: string): void {
   const targetHref = `#${sectionId === "hero" ? "home" : sectionId}`;
@@ -85,7 +86,7 @@ function setupScrollSpy(): void {
 
 function setupScrollAnimations(): void {
   const animatedElements = document.querySelectorAll<HTMLElement>(
-    "#about header, #about p, #about article, #skills header, #skills article",
+    "#about header, #about p, #about article, #skills header, #skills article, #portfolio, #portfolio [data-portfolio-card]",
   );
   const revealClasses = [
     "opacity-0",
@@ -137,6 +138,7 @@ function initApp(): void {
       ${renderHero()}
       ${renderAbout()}
       ${renderSkills()}
+      ${renderPortfolio()}
     </main>
   `;
 

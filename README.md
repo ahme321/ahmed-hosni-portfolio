@@ -32,10 +32,9 @@ ahmed-hosni-portfolio/
 ├── public/                  # Static assets served as-is (favicons, CV pdf)
 │   ├── favicon.svg
 │   └── icons.svg
-├── src/
-│   ├── assets/              # Processed media (hero illustration, vectors)
-│   │   ├── hero.png
-│   │   └── typescript.svg
+├── src/                     # Processed media (hero illustration, vectors)
+│   ├── hero.png
+│   └── typescript.svg
 │   ├── components/          # Modular UI renderers (Pure Functions)
 │   │   ├── navbar.ts        # Sticky blurred navigation bar
 │   │   ├── hero.ts          # Hero banner with CTA and socials
@@ -49,8 +48,6 @@ ahmed-hosni-portfolio/
 │   │   └── projects.ts      # Projects catalog and metadata
 │   ├── types/               # Domain models and strict TypeScript contracts
 │   │   └── index.ts         # Centralized interfaces (Project, Skill, NavItem)
-│   ├── utils/               # Shared DOM helpers and validators
-│   │   └── dom.ts
 │   ├── style.css            # Tailwind CSS v4 directives and design tokens
 │   └── main.ts              # App entry point and DOM orchestrator
 ├── index.html               # Single-page semantic HTML5 entry

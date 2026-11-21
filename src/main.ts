@@ -4,6 +4,8 @@ import renderHero from "./components/hero";
 import { renderAbout } from "./components/about";
 import { renderSkills } from "./components/skills";
 import { renderPortfolio } from "./components/portfolio";
+import { initContact, renderContact } from "./components/contact";
+import { renderFooter } from "./components/footer";
 
 const scrollSpySectionIds = ["home", "about", "skills", "portfolio", "contact"];
 
@@ -86,7 +88,7 @@ function setupScrollSpy(): void {
 
 function setupScrollAnimations(): void {
   const animatedElements = document.querySelectorAll<HTMLElement>(
-    "#about header, #about p, #about article, #skills header, #skills article, #portfolio, #portfolio [data-portfolio-card]",
+    "#about header, #about p, #about article, #skills header, #skills article, #portfolio, #portfolio [data-portfolio-card], #contact header, #contact form",
   );
   const revealClasses = [
     "opacity-0",
@@ -139,10 +141,13 @@ function initApp(): void {
       ${renderAbout()}
       ${renderSkills()}
       ${renderPortfolio()}
+      ${renderContact()}
     </main>
+    ${renderFooter()}
   `;
 
   setupNavbarEvents();
+  initContact();
   setupScrollAnimations();
   setupScrollSpy();
 }

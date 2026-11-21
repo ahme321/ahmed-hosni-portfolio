@@ -1,35 +1,7 @@
-interface PortfolioProject {
-  title: string;
-  label: string;
-  description: string;
-  demoUrl: string;
-}
+import { projects } from "../data/projects";
+import type { ProjectItem } from "../types";
 
-const portfolioProjects: PortfolioProject[] = [
-  {
-    title: "DentaFlow",
-    label: "Healthcare System",
-    description:
-      "A clinical management and scheduling platform built to eliminate patient double-booking and operational bottlenecks. Leverages transactional logic and an optimized relational schema in .NET and SQL Server to keep multi-doctor timetables synchronized in real time with zero scheduling conflicts.",
-    demoUrl: "#",
-  },
-  {
-    title: "NexusElectro",
-    label: "E-Commerce Platform",
-    description:
-      "A responsive tech e-commerce engine designed to solve catalog latency and complex inventory filtering across high-spec hardware. Powered by structured data indexing and efficient caching strategies to provide instant product discovery, streamlined checkout flows, and seamless cart state management.",
-    demoUrl: "#",
-  },
-  {
-    title: "AcademiaCore",
-    label: "EdTech Platform",
-    description:
-      "A dedicated learning management engine engineered to streamline lesson delivery and student assessments for high school educators. Implements structured media pipelines and queue-based evaluation workloads to handle high-traffic student exam submissions reliably without server interruptions.",
-    demoUrl: "#",
-  },
-];
-
-function renderProjectCard(project: PortfolioProject): string {
+function renderProjectCard(project: ProjectItem): string {
   return `
     <article data-portfolio-card class="group flex flex-col rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/50 hover:bg-slate-900/90 transition-all duration-300 overflow-hidden shadow-lg hover:-translate-y-1.5">
       <div class="aspect-video relative overflow-hidden bg-slate-950 border-b border-slate-800/80">
@@ -71,7 +43,7 @@ export function renderPortfolio(): string {
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          ${portfolioProjects.map(renderProjectCard).join("")}
+          ${projects.map(renderProjectCard).join("")}
         </div>
       </div>
     </section>
